@@ -15,6 +15,15 @@ export class UserService extends FirebaseService {
   constructor(afs: AngularFirestore, private afAuth: AngularFireAuth) {
     super(afs);
   }
+   
+   doLogin(value){
+   return new Promise<any>((resolve, reject) => {
+     this.afAuth.signInWithEmailAndPassword(value.email, value.password)
+     .then(
+       res => resolve(res),
+       err => reject(err))
+   })
+  }
 
   signInWithProvider(provider: any) {
     return this.afAuth.auth.signInWithPopup(provider)

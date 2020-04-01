@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import * as firebase from 'firebase/app';
+
 import { FirebaseService, AFSQuery } from './firebase.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -18,7 +20,7 @@ export class UserService extends FirebaseService {
    
    doLogin(value){
    return new Promise<any>((resolve, reject) => {
-     this.afAuth.signInWithEmailAndPassword(value.email, value.password)
+     firebase.auth().signInWithEmailAndPassword(value.email, value.password)
      .then(
        res => resolve(res),
        err => reject(err))

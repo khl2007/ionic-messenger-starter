@@ -57,7 +57,7 @@ validations_form: FormGroup;
   }
 
   tryLogin(value){
-    this.authService.doLogin(value)
+    this.userService.doLogin(value)
     .then(res => {
       this.router.navigate(["/home"]);
     }, err => {

@@ -26,6 +26,15 @@ export class UserService extends FirebaseService {
        err => reject(err))
    })
   }
+   
+  doRegister(value){
+   return new Promise<any>((resolve, reject) => {
+     firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+     .then(
+       res => resolve(res),
+       err => reject(err))
+   })
+  }
 
   signInWithProvider(provider: any) {
     return this.afAuth.auth.signInWithPopup(provider)

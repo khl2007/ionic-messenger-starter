@@ -14,5 +14,10 @@ export class ProfilePage implements OnInit {
   ngOnInit() {
     this.currentUser = this.userService.currentUser;
   }
+  Changprofilepic()
+   {
+
+
+   }
 
 }

@@ -10,7 +10,7 @@
 <ion-content *ngIf="currentUser | async as profile">
   <div class="user-photo" padding-top>
     <ion-avatar>
-      <img [src]="profile.photoURL || '/assets/images/noavatar.png'">
+      <img (click)="changprofilepic()" [src]="profile.photoURL || '/assets/images/noavatar.png'">
     </ion-avatar>
   </div>
 
